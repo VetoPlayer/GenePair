@@ -29,7 +29,20 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="Head" type="AnimatedSprite" parent="."]
+position = Vector2( 1.16632, -5.83179 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+animation = "up"
+
+[node name="Torso" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 61.8166 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+animation = "up"
+
+[node name="Legs" type="AnimatedSprite" parent="."]
+position = Vector2( -2.3327, 130.631 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "up"

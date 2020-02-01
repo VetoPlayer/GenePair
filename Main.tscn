@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Mob.tscn" type="PackedScene" id=2]
@@ -6,11 +6,6 @@
 [ext_resource path="res://dodge_assets/art/gameover.wav" type="AudioStream" id=4]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=6]
-
-[sub_resource type="Curve2D" id=1]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 4.57126, 3.26175, 0, 0, 0, 0, 482.572, 5.26176, 0, 0, 0, 0, 482.572, 724.263, 0, 0, 0, 0, 4.57126, 727.263, 0, 0, 0, 0, 5.57126, 6.26176, 0, 0, 0, 0, 4.57126, 3.26175 )
-}
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -43,13 +38,6 @@ position = Vector2( 890.816, 476.93 )
 [node name="Player1" parent="." instance=ExtResource( 5 )]
 
 [node name="Player2" parent="." instance=ExtResource( 5 )]
-
-[node name="MobPath" type="Path2D" parent="."]
-curve = SubResource( 1 )
-
-[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
-position = Vector2( 4.57126, 3.26175 )
-rotation = 0.00418398
 
 [node name="HUD" parent="." instance=ExtResource( 6 )]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
