@@ -24,3 +24,7 @@ func show_game_over():
 func _on_StartButton_pressed():
 	get_tree().change_scene("res://choose.tscn")
 
+
+
+func _on_Credits_pressed():
+	get_tree().change_scene()

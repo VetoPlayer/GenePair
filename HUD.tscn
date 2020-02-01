@@ -32,10 +32,23 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -95.5402
-margin_top = -339.754
-margin_right = 84.4598
-margin_bottom = -239.754
+margin_left = -93.8699
+margin_top = -366.477
+margin_right = 86.1301
+margin_bottom = -266.477
 custom_fonts/font = SubResource( 2 )
 text = "Start"
+
+[node name="Credits" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -128.944
+margin_top = -241.213
+margin_right = 118.056
+margin_bottom = -141.213
+custom_fonts/font = SubResource( 2 )
+text = "Credits"
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_Credits_pressed"]
