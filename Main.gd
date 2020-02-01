@@ -24,9 +24,8 @@ func _on_Player_hit():
 	
 func new_game():
 	score = 0
-	$Player1.start($StartPosition1.position)
-	$Player2.start($StartPosition2.position)
-	$StartTimer.start()
+	$Player1.start($StartPosition1.position, true)
+	$Player2.start($StartPosition2.position, false)
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready")
 	$Music.play()
@@ -36,10 +35,6 @@ func _on_ScoreTimer_timeout():
 	score += 1
 	$HUD.update_score(score)
 
-
-func _on_StartTimer_timeout():
-	$MobTimer.start()
-	$ScoreTimer.start()
 
 
 func _on_MobTimer_timeout():

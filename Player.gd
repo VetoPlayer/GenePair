@@ -4,6 +4,13 @@ signal hit
 
 export var speed = 400 # pixel/sec - How fast the player will move.
 var screen_size # Size of the game window
+## Hack for double controls
+var left = "ui_left"
+var right = "ui_right"
+var up = "ui_up"
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	## Actually hide the player at the very beginning of the game	
@@ -13,13 +20,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var velocity = Vector2()
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed(left):
 		velocity.x -= 1
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed(right):
 		velocity.x += 1
-	if Input.is_action_pressed("ui_down"):
-		velocity.y += 1
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed(up):
 		velocity.y -= 1
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
@@ -47,8 +52,12 @@ func _on_Player_body_entered(body):
 	## We actually want this to be disabled because we don't want to happen twice
 	$CollisionShape2D.set_deferred("disabled", true)
 
-func start(pos):
+func start(pos, is_first_player):
 	## When the game starts, move the player in the given position and reveal it.
 	position = pos
+	if is_first_player:
+		left = "first_left"
+		right = "first_right"
+		up = "first_up"
 	show()
 	$CollisionShape2D.disabled = false
