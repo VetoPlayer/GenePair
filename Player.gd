@@ -57,6 +57,9 @@ func start(pos, is_first_player, head, torso, legs):
 	show()
 	
 	if is_first_player:
+		$Head.flip_h = true
+		$Torso.flip_h = true
+		$Legs.flip_h = true
 		first_player = true
 		## Update the commands to be the first player ones.
 		left = "first_left"
@@ -65,7 +68,7 @@ func start(pos, is_first_player, head, torso, legs):
 		up_block = "first_down"
 	else:
 		#Flip the sprites
-		$Torso.flip_h = true
+		$Torso.flip_h = false
 
 	$CollisionShape2D.disabled = false
 
