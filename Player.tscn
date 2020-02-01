@@ -7,10 +7,10 @@
 [ext_resource path="res://dodge_assets/art/playerGrey_walk2.png" type="Texture" id=5]
 [ext_resource path="res://dodge_assets/art/enemyFlyingAlt_1.png" type="Texture" id=6]
 [ext_resource path="res://dodge_assets/art/enemyFlyingAlt_2.png" type="Texture" id=7]
-[ext_resource path="res://dodge_assets/art/enemyWalking_1.png" type="Texture" id=8]
-[ext_resource path="res://dodge_assets/art/enemyWalking_2.png" type="Texture" id=9]
-[ext_resource path="res://dodge_assets/art/enemySwimming_1.png" type="Texture" id=10]
-[ext_resource path="res://dodge_assets/art/enemySwimming_2.png" type="Texture" id=11]
+[ext_resource path="res://dodge_assets/art/enemySwimming_2.png" type="Texture" id=8]
+[ext_resource path="res://dodge_assets/art/enemyWalking_1.png" type="Texture" id=9]
+[ext_resource path="res://dodge_assets/art/enemyWalking_2.png" type="Texture" id=10]
+[ext_resource path="res://dodge_assets/art/enemySwimming_1.png" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -31,11 +31,16 @@ animations = [ {
 "loop": true,
 "name": "torso_attack",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "torso_block",
+"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "leg_block",
 "speed": 5.0
@@ -45,7 +50,7 @@ animations = [ {
 "name": "walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "leg_attack",
 "speed": 5.0
@@ -69,10 +74,9 @@ animation = "up"
 
 [node name="Torso" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 61.8166 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.498068, 0.5 )
 frames = SubResource( 2 )
-animation = "torso_attack"
-frame = 1
+animation = "torso_block"
 
 [node name="Legs" type="AnimatedSprite" parent="."]
 position = Vector2( -2.3327, 130.631 )
