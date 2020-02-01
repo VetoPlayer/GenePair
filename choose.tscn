@@ -63,6 +63,7 @@ margin_top = -156.06
 margin_right = 122.309
 margin_bottom = -56.0599
 custom_fonts/font = SubResource( 2 )
+toggle_mode = true
 text = "Start"
 
 [node name="Trex" type="Button" parent="."]
@@ -91,6 +92,7 @@ margin_right = -150.72
 margin_bottom = -193.05
 rect_pivot_offset = Vector2( 82.7201, 23.0496 )
 custom_fonts/font = SubResource( 2 )
+toggle_mode = true
 text = "Chicken"
 
 [node name="Hedgehog" type="Button" parent="."]
@@ -104,6 +106,7 @@ margin_right = -106.906
 margin_bottom = -65.1064
 rect_pivot_offset = Vector2( 82.7201, 23.0496 )
 custom_fonts/font = SubResource( 2 )
+toggle_mode = true
 text = "Hedgehog"
 
 [node name="Trex2" type="Button" parent="."]
@@ -116,6 +119,7 @@ margin_top = -415.823
 margin_right = 431.703
 margin_bottom = -315.823
 custom_fonts/font = SubResource( 2 )
+toggle_mode = true
 text = "T-Rex"
 
 [node name="Chicken2" type="Button" parent="."]
@@ -129,6 +133,7 @@ margin_right = 461.856
 margin_bottom = -199.511
 rect_pivot_offset = Vector2( 82.7201, 23.0496 )
 custom_fonts/font = SubResource( 2 )
+toggle_mode = true
 text = "Chicken"
 
 [node name="Hedgehog2" type="Button" parent="."]
@@ -142,7 +147,12 @@ margin_right = 500.501
 margin_bottom = -65.1064
 rect_pivot_offset = Vector2( 82.7201, 23.0496 )
 custom_fonts/font = SubResource( 2 )
+toggle_mode = true
 text = "Hedgehog"
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="Trex" to="." method="_on_Trex_pressed"]
 [connection signal="pressed" from="Chicken" to="." method="_on_Chicken_pressed"]
+[connection signal="pressed" from="Hedgehog" to="." method="_on_Hedgehog_pressed"]
+[connection signal="pressed" from="Trex2" to="." method="_on_Trex2_pressed"]
+[connection signal="pressed" from="Chicken2" to="." method="_on_Chicken2_pressed"]
+[connection signal="pressed" from="Hedgehog2" to="." method="_on_Hedgehog2_pressed"]

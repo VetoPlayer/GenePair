@@ -1,13 +1,5 @@
 extends Node2D
 
-# Declare member variables here. Examples:
-var first_head = ""
-var first_torso = ""
-var first_legs = ""
-var second_head = ""
-var second_torso = ""
-var second_legs = ""
-
 
 var first_animals = []
 var second_animals = []
@@ -16,3 +8,12 @@ var second_animals = []
 func _ready():
 	pass # Replace with function body.
 
+func add_first_animals(animal):
+	first_animals.push_back(animal)
+
+func add_second_animals(animal):
+	second_animals.push_back(animal)
+	
+func mix_randomly():
+	first_animals.shuffle()
+	second_animals.shuffle()

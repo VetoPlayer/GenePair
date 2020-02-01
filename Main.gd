@@ -9,8 +9,12 @@ func _ready():
 	## Let's get the global variables about the players
 	## and instantiate them accordingly
 	var g = get_node("/root/Global")
-	$Player1.start($StartPosition1.position, true, g.first_head, g.first_torso, g.first_legs)
-	$Player2.start($StartPosition2.position, false, g.second_head, g.second_torso, g.second_legs)
+	## First Player
+	var f = g.first_animals
+	## Second Player
+	var sec = g.second_animals
+	$Player1.start($StartPosition1.position, true, f[0], f[1],  f[2])
+	$Player2.start($StartPosition2.position, false, sec[0], sec[1], sec[2])
 	$Music.play()
 
 
