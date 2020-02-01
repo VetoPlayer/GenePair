@@ -33,3 +33,7 @@ func new_player_selection():
 func _on_HUD_start_game():
 	## This one afterwards will need to be performed if it's the first time
 	new_player_selection()
+
+
+func _on_HealthBar1_dead_player():
+	print("Game is Over!")

@@ -49,3 +49,4 @@ margin_bottom = 44.3321
 rect_scale = Vector2( 0.2, 0.2 )
 [connection signal="hit" from="Player1" to="." method="_on_Player_hit"]
 [connection signal="hit" from="Player2" to="." method="_on_Player_hit"]
+[connection signal="dead_player" from="HealthBar1" to="." method="_on_HealthBar1_dead_player"]
