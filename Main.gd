@@ -6,8 +6,11 @@ var score
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Player1.start($StartPosition1.position, true)
-	$Player2.start($StartPosition2.position, false)
+	## Let's get the global variables about the players
+	## and instantiate them accordingly
+	var g = get_node("/root/Global")
+	$Player1.start($StartPosition1.position, true, g.first_head, g.first_torso, g.first_legs)
+	$Player2.start($StartPosition2.position, false, g.second_head, g.second_torso, g.second_legs)
 	$Music.play()
 
 

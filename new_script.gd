@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -8,8 +8,6 @@ extends CanvasLayer
 func _ready():
 	pass # Replace with function body.
 
-var g = get_node("/root/Global")
-
-
-func _on_StartButton_pressed():
-	get_tree().change_scene("res://Main.tscn")
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
