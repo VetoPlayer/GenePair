@@ -3,11 +3,11 @@
 [ext_resource path="res://HUD.gd" type="Script" id=1]
 [ext_resource path="res://dodge_assets/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 64
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 64
 font_data = ExtResource( 2 )
 
@@ -23,7 +23,7 @@ margin_top = -258.483
 margin_right = -342.382
 margin_bottom = -170.483
 rect_pivot_offset = Vector2( 62.3824, 63.928 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "GenePair"
 align = 1
 
@@ -36,6 +36,6 @@ margin_left = -95.5402
 margin_top = -339.754
 margin_right = 84.4598
 margin_bottom = -239.754
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Start"
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]

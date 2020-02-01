@@ -8,9 +8,10 @@ var screen_size # Size of the game window
 ## Hack for double controls
 var left = "ui_left"
 var right = "ui_right"
-var up = "ui_up"
+var up_attack = "ui_up"
+var up_block = "ui_down"
 
-
+var is_blocking = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,21 +27,24 @@ func _process(delta):
 		velocity.x -= 1
 	if Input.is_action_pressed(right):
 		velocity.x += 1
-	if Input.is_action_pressed(up):
-		velocity.y -= 1
+	if Input.is_action_pressed(up_attack):
+		$Torso.animation = "torso_attack"
+		$Torso.play()
+	if Input.is_action_pressed(up_block):
+		is_blocking = true
+		$Torso.animation = "torso_block"
+		$Torso.play()
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		## Play the actual animation according to the velocity
-		if velocity.x != 0:
-			$Torso.animation = "walk"
-			$Torso.flip_v = false
-			$Torso.flip_h = velocity.x < 0
-		if velocity.y != 0:
-			$Torso.animation = "up"
-			$Torso.flip_v = velocity.y > 0
-		$Torso.play()
-	else:
-		$Torso.stop()
+		##if velocity.x != 0:
+		##	$Torso.flip_v = false
+		##	$Torso.flip_h = velocity.x < 0
+		##if velocity.y != 0:
+		##	$Torso.animation = "up"
+		##	$Torso.flip_v = velocity.y > 0
+	#else:
+		#$Torso.stop()
 	# Actually update the player position
 	position += velocity * delta
 	position.x = clamp(position.x, 0, screen_size.x)
@@ -48,29 +52,32 @@ func _process(delta):
 
 
 func start(pos, is_first_player, head, torso, legs):
-	print(head)
-	print(torso)
-	print(legs)
-	## TODO: Add head, torso and legs type
 	## When the game starts, move the player in the given position and reveal it.
-	
-	
-	
 	position = pos
+	show()
+	
 	if is_first_player:
 		first_player = true
 		## Update the commands to be the first player ones.
 		left = "first_left"
 		right = "first_right"
-		up = "first_up"
-	show()
+		up_attack = "first_attack"
+		up_block = "first_down"
+	else:
+		#Flip the sprites
+		$Torso.flip_h = true
+
 	$CollisionShape2D.disabled = false
 
 func _on_Player_area_entered(area):
-	print("I have been hit, emitting signal")
-	## TODO: You should asks to the area2D just entered how much the damage is.
-	## TODO: You do want to check out your current status, i.e. whether you are blocking
-	emit_signal("hit", first_player, 20)
+	if not is_blocking and not area.is_blocking:
+		emit_signal("hit", first_player, 20)
 	## set_deferred: Disable collision shape only when it's safe to do so.
 	## We actually want this to be disabled because we don't want to happen twice
-	##$CollisionShape2D.set_deferred("disabled", true)
+	#$CollisionShape2D.set_deferred("disabled", true)
+
+
+func _on_Torso_animation_finished():
+	$Torso.stop()
+	is_blocking = false
+	
