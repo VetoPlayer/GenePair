@@ -1,7 +1,7 @@
 extends Control
 
 onready var health_bar = $HealthBar
-var health_value = 100
+onready var health_value = 100
 
 func _on_health_updated(health, amount):
 	  health_bar.value = health
@@ -13,5 +13,10 @@ func update_health(damage):
 	print("Updating Health....")
 	health_value -= damage
 	## TODO Check if health == 0
-	health_bar.value = health_value
 	
+	if(health_value <= 0.0):
+	  health_bar.value = 0.0
+	  health_bar.max_value = 0.0
+	  print ("Done xd")
+	else:
+	  health_bar.value = health_value

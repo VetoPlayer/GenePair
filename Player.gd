@@ -62,7 +62,7 @@ func _on_Player_area_entered(area):
 	print("I have been hit, emitting signal")
 	## TODO: You should asks to the area2D just entered how much the damage is.
 	## TODO: You do want to check out your current status, i.e. whether you are blocking
-	emit_signal("hit", first_player, 10)
+	emit_signal("hit", first_player, 20)
 	## set_deferred: Disable collision shape only when it's safe to do so.
 	## We actually want this to be disabled because we don't want to happen twice
 	##$CollisionShape2D.set_deferred("disabled", true)
