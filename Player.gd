@@ -14,7 +14,8 @@ var up = "ui_up"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	## Actually hide the player at the very beginning of the game	
+	## Actually hide the player at the very beginning of the game
+	## Read about what kind of configuration the each is suposed to have from a global script
 	hide()
 	screen_size = get_viewport_rect().size
 
@@ -46,12 +47,19 @@ func _process(delta):
 	position.y = clamp(position.y, 0, screen_size.y)
 
 
-func start(pos, is_first_player):
+func start(pos, is_first_player, head, torso, legs):
+	print(head)
+	print(torso)
+	print(legs)
 	## TODO: Add head, torso and legs type
 	## When the game starts, move the player in the given position and reveal it.
+	
+	
+	
 	position = pos
 	if is_first_player:
 		first_player = true
+		## Update the commands to be the first player ones.
 		left = "first_left"
 		right = "first_right"
 		up = "first_up"

@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://choose.gd" type="Script" id=1]
 [ext_resource path="res://dodge_assets/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://choose_button.gd" type="Script" id=3]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 64
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 64
 font_data = ExtResource( 2 )
 
@@ -18,11 +19,11 @@ script = ExtResource( 1 )
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = 3.87704
-margin_top = -288.006
-margin_right = 3.87708
-margin_bottom = -48.0062
-custom_fonts/font = SubResource( 2 )
+margin_left = 1.0
+margin_top = -288.0
+margin_right = 4.0
+margin_bottom = -208.0
+custom_fonts/font = SubResource( 1 )
 text = "Choose your Animal Genome!"
 align = 1
 
@@ -31,11 +32,11 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 margin_left = 85.2955
-margin_top = -156.186
+margin_top = -200.126
 margin_right = -662.705
-margin_bottom = -78.1859
+margin_bottom = -122.126
 rect_pivot_offset = Vector2( 446.903, 43.9401 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Player 1"
 align = 1
 
@@ -43,12 +44,12 @@ align = 1
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = 691.41
-margin_top = -156.186
-margin_right = -56.5898
-margin_bottom = -78.1859
+margin_left = 688.825
+margin_top = -194.957
+margin_right = -59.1746
+margin_bottom = -116.957
 rect_pivot_offset = Vector2( 446.903, 43.9401 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Player 2"
 align = 1
 
@@ -61,30 +62,87 @@ margin_left = -57.6911
 margin_top = -156.06
 margin_right = 122.309
 margin_bottom = -56.0599
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Start"
 
-[node name="Tiger" type="Button" parent="."]
+[node name="Trex" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -401.458
-margin_top = -338.282
-margin_right = -183.458
-margin_bottom = -238.282
-custom_fonts/font = SubResource( 3 )
+margin_left = -400.165
+margin_top = -411.946
+margin_right = -182.165
+margin_bottom = -311.946
+custom_fonts/font = SubResource( 2 )
+toggle_mode = true
 text = "T-Rex"
+script = ExtResource( 3 )
+is_first_player = true
 
-[node name="Tiger2" type="Button" parent="."]
+[node name="Chicken" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -424.72
+margin_top = -293.05
+margin_right = -150.72
+margin_bottom = -193.05
+rect_pivot_offset = Vector2( 82.7201, 23.0496 )
+custom_fonts/font = SubResource( 2 )
+text = "Chicken"
+
+[node name="Hedgehog" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -460.906
+margin_top = -165.106
+margin_right = -106.906
+margin_bottom = -65.1064
+rect_pivot_offset = Vector2( 82.7201, 23.0496 )
+custom_fonts/font = SubResource( 2 )
+text = "Hedgehog"
+
+[node name="Trex2" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = 213.703
-margin_top = -349.913
+margin_top = -415.823
 margin_right = 431.703
-margin_bottom = -249.913
-custom_fonts/font = SubResource( 3 )
+margin_bottom = -315.823
+custom_fonts/font = SubResource( 2 )
 text = "T-Rex"
+
+[node name="Chicken2" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 187.856
+margin_top = -299.511
+margin_right = 461.856
+margin_bottom = -199.511
+rect_pivot_offset = Vector2( 82.7201, 23.0496 )
+custom_fonts/font = SubResource( 2 )
+text = "Chicken"
+
+[node name="Hedgehog2" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 146.501
+margin_top = -165.106
+margin_right = 500.501
+margin_bottom = -65.1064
+rect_pivot_offset = Vector2( 82.7201, 23.0496 )
+custom_fonts/font = SubResource( 2 )
+text = "Hedgehog"
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="Trex" to="." method="_on_Trex_pressed"]
+[connection signal="pressed" from="Chicken" to="." method="_on_Chicken_pressed"]

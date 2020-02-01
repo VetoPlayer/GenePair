@@ -1,5 +1,8 @@
 extends Control
 
+
+signal dead_player
+
 onready var health_bar = $HealthBar
 onready var health_value = 100
 
@@ -10,7 +13,6 @@ func _on_max_health_updated(max_health):
 	
 	
 func update_health(damage):
-	print("Updating Health....")
 	health_value -= damage
 	## TODO Check if health == 0
 	
@@ -20,3 +22,8 @@ func update_health(damage):
 	  print ("Done xd")
 	else:
 	  health_bar.value = health_value
+	## Update health value
+	health_bar.value = health_value
+	if health_value <= 0:
+		emit_signal("dead_player")
+	
