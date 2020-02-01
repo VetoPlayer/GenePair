@@ -26,6 +26,9 @@ rect_pivot_offset = Vector2( 62.3824, 63.928 )
 custom_fonts/font = SubResource( 1 )
 text = "GenePair"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="StartButton" type="Button" parent="."]
 anchor_left = 0.5

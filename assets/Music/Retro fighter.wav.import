@@ -15,7 +15,12 @@ force/8_bit=false
 force/mono=false
 force/max_rate=false
 force/max_rate_hz=44100
+<<<<<<< HEAD
 edit/trim=false
 edit/normalize=false
+=======
+edit/trim=true
+edit/normalize=true
+>>>>>>> 1da0b771ab3b7eaea71597f573efe8144892811d
 edit/loop=false
 compress/mode=0

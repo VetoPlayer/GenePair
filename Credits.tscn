@@ -31,10 +31,10 @@ text = "Credits"
 align = 1
 
 [node name="Label3" type="Label" parent="."]
-margin_left = 728.676
-margin_top = 183.53
-margin_right = 877.676
-margin_bottom = 231.53
+margin_left = 745.332
+margin_top = 140.966
+margin_right = 894.332
+margin_bottom = 188.966
 custom_fonts/font = SubResource( 2 )
 text = "Art"
 align = 1
@@ -49,19 +49,19 @@ text = "Sound"
 align = 1
 
 [node name="Label4" type="Label" parent="."]
-margin_left = 99.4661
-margin_top = 168.725
-margin_right = 380.466
-margin_bottom = 216.725
+margin_left = 58.7525
+margin_top = 100.253
+margin_right = 339.753
+margin_bottom = 148.253
 custom_fonts/font = SubResource( 2 )
 text = "Programming"
 align = 1
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 51.3691
-margin_top = 240.0
-margin_right = 424.369
-margin_bottom = 379.0
+margin_left = 16.2074
+margin_top = 165.975
+margin_right = 389.207
+margin_bottom = 304.975
 custom_fonts/font = SubResource( 3 )
 text = "Marcel41
 Andrea Brunato
@@ -78,10 +78,10 @@ text = "Andres Molina"
 align = 1
 
 [node name="BackButton" type="Button" parent="."]
-margin_left = 372.174
-margin_top = 457.0
-margin_right = 793.174
-margin_bottom = 544.0
+margin_left = 309.253
+margin_top = 453.299
+margin_right = 730.253
+margin_bottom = 540.299
 custom_fonts/font = SubResource( 4 )
 text = "Back"
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
