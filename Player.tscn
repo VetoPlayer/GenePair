@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://dodge_assets/art/playerGrey_up1.png" type="Texture" id=2]
@@ -7,8 +7,10 @@
 [ext_resource path="res://dodge_assets/art/playerGrey_walk2.png" type="Texture" id=5]
 [ext_resource path="res://dodge_assets/art/enemyFlyingAlt_1.png" type="Texture" id=6]
 [ext_resource path="res://dodge_assets/art/enemyFlyingAlt_2.png" type="Texture" id=7]
-[ext_resource path="res://dodge_assets/art/enemySwimming_1.png" type="Texture" id=8]
-[ext_resource path="res://dodge_assets/art/enemySwimming_2.png" type="Texture" id=9]
+[ext_resource path="res://dodge_assets/art/enemyWalking_1.png" type="Texture" id=8]
+[ext_resource path="res://dodge_assets/art/enemyWalking_2.png" type="Texture" id=9]
+[ext_resource path="res://dodge_assets/art/enemySwimming_1.png" type="Texture" id=10]
+[ext_resource path="res://dodge_assets/art/enemySwimming_2.png" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -34,6 +36,16 @@ animations = [ {
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "leg_block",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "leg_attack",
 "speed": 5.0
@@ -66,7 +78,7 @@ frame = 1
 position = Vector2( -2.3327, 130.631 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 4 )
-animation = "leg_attack"
+animation = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 3 )

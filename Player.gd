@@ -62,6 +62,9 @@ func start(pos, is_first_player, head, torso, legs):
 		left = "first_left"
 		right = "first_right"
 		up_attack = "first_attack"
+	else:
+		#Flip the sprites
+		$Torso.flip_h = true
 	show()
 	$CollisionShape2D.disabled = false
 
