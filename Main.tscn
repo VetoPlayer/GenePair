@@ -23,10 +23,10 @@ stream = ExtResource( 3 )
 stream = ExtResource( 4 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 1.16638
-margin_top = 1.16635
-margin_right = 488.166
-margin_bottom = 729.166
+margin_left = 1.0
+margin_top = -7.0
+margin_right = 1031.0
+margin_bottom = 603.0
 color = Color( 0.784314, 0.635294, 0.784314, 1 )
 
 [node name="ScoreTimer" type="Timer" parent="."]

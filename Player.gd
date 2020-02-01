@@ -1,7 +1,7 @@
 extends Area2D
 
-signal hit
-
+var first_player = false
+signal hit(is_first_player, damage)
 export var speed = 400 # pixel/sec - How fast the player will move.
 var screen_size # Size of the game window
 ## Hack for double controls
@@ -56,8 +56,14 @@ func start(pos, is_first_player):
 	## When the game starts, move the player in the given position and reveal it.
 	position = pos
 	if is_first_player:
+		first_player = true
 		left = "first_left"
 		right = "first_right"
 		up = "first_up"
 	show()
 	$CollisionShape2D.disabled = false
+
+func _on_Player_area_entered(area):
+	print("I have been hit, emitting signal")
+	## TODO: You should asks to the area2D just entered how much the damage is.
+	emit_signal("hit", first_player, 10)

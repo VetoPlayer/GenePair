@@ -13,8 +13,10 @@ func _ready():
 #	pass
 
 
-func _on_Player_hit():
+func _on_Player_hit(is_first_player, damage):
 	## When the player is hit, the game is over
+	print("I see the player being hit")
+	print(damage)
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.show_game_over()
