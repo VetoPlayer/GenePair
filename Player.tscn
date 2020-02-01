@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://dodge_assets/art/playerGrey_up1.png" type="Texture" id=2]
 [ext_resource path="res://dodge_assets/art/playerGrey_up2.png" type="Texture" id=3]
 [ext_resource path="res://dodge_assets/art/playerGrey_walk1.png" type="Texture" id=4]
 [ext_resource path="res://dodge_assets/art/playerGrey_walk2.png" type="Texture" id=5]
+[ext_resource path="res://dodge_assets/art/enemyFlyingAlt_1.png" type="Texture" id=6]
+[ext_resource path="res://dodge_assets/art/enemyFlyingAlt_2.png" type="Texture" id=7]
+[ext_resource path="res://dodge_assets/art/enemySwimming_1.png" type="Texture" id=8]
+[ext_resource path="res://dodge_assets/art/enemySwimming_2.png" type="Texture" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,7 +23,23 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "torso_attack",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "leg_attack",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 19.5958
 height = 28.6281
 
@@ -38,16 +58,18 @@ animation = "up"
 [node name="Torso" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 61.8166 )
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 1 )
-animation = "up"
+frames = SubResource( 2 )
+animation = "torso_attack"
+frame = 1
 
 [node name="Legs" type="AnimatedSprite" parent="."]
 position = Vector2( -2.3327, 130.631 )
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 1 )
-animation = "up"
+frames = SubResource( 4 )
+animation = "leg_attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 [connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
+[connection signal="animation_finished" from="Torso" to="." method="_on_Torso_animation_finished"]

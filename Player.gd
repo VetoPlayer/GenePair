@@ -8,7 +8,7 @@ var screen_size # Size of the game window
 ## Hack for double controls
 var left = "ui_left"
 var right = "ui_right"
-var up = "ui_up"
+var up_attack = "ui_up"
 
 
 
@@ -26,21 +26,20 @@ func _process(delta):
 		velocity.x -= 1
 	if Input.is_action_pressed(right):
 		velocity.x += 1
-	if Input.is_action_pressed(up):
-		velocity.y -= 1
+	if Input.is_action_pressed(up_attack):
+		$Torso.animation = "torso_attack"
+		$Torso.play()
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		## Play the actual animation according to the velocity
-		if velocity.x != 0:
-			$Torso.animation = "walk"
-			$Torso.flip_v = false
-			$Torso.flip_h = velocity.x < 0
-		if velocity.y != 0:
-			$Torso.animation = "up"
-			$Torso.flip_v = velocity.y > 0
-		$Torso.play()
-	else:
-		$Torso.stop()
+		##if velocity.x != 0:
+		##	$Torso.flip_v = false
+		##	$Torso.flip_h = velocity.x < 0
+		##if velocity.y != 0:
+		##	$Torso.animation = "up"
+		##	$Torso.flip_v = velocity.y > 0
+	#else:
+		#$Torso.stop()
 	# Actually update the player position
 	position += velocity * delta
 	position.x = clamp(position.x, 0, screen_size.x)
@@ -62,7 +61,7 @@ func start(pos, is_first_player, head, torso, legs):
 		## Update the commands to be the first player ones.
 		left = "first_left"
 		right = "first_right"
-		up = "first_up"
+		up_attack = "first_attack"
 	show()
 	$CollisionShape2D.disabled = false
 
@@ -74,3 +73,8 @@ func _on_Player_area_entered(area):
 	## set_deferred: Disable collision shape only when it's safe to do so.
 	## We actually want this to be disabled because we don't want to happen twice
 	##$CollisionShape2D.set_deferred("disabled", true)
+
+
+func _on_Torso_animation_finished():
+	$Torso.stop()
+	
