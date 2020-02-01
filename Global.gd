@@ -9,7 +9,8 @@ var second_torso = ""
 var second_legs = ""
 
 
-
+var first_animals = []
+var second_animals = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

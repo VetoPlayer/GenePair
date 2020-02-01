@@ -1,15 +1,15 @@
 extends CanvasLayer
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-var g = get_node("/root/Global")
-
+## Preload the global script in such a way that we are able to update its values
+onready var g = get_node("/root/Global")
 
 func _on_StartButton_pressed():
 	get_tree().change_scene("res://Main.tscn")
+
+
+func _on_Trex_pressed():
+	g.add_first_animals("trex")
+
+
+func _on_Chicken_pressed():
+	g.add_first_animals("chicken")
