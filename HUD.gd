@@ -27,4 +27,5 @@ func _on_StartButton_pressed():
 
 
 func _on_Credits_pressed():
-	get_tree().change_scene()
+	pass
+	get_tree().change_scene("res://Credits.tscn")
