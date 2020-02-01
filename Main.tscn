@@ -24,24 +24,17 @@ margin_right = 1031.0
 margin_bottom = 603.0
 color = Color( 0.784314, 0.635294, 0.784314, 1 )
 
-[node name="ScoreTimer" type="Timer" parent="."]
-
-[node name="MobTimer" type="Timer" parent="."]
-wait_time = 0.5
-
 [node name="StartPosition1" type="Position2D" parent="."]
-position = Vector2( 118.282, 481.503 )
+position = Vector2( 200, 300 )
 
 [node name="StartPosition2" type="Position2D" parent="."]
-position = Vector2( 890.816, 476.93 )
+position = Vector2( 798.892, 301.108 )
 
 [node name="Player1" parent="." instance=ExtResource( 5 )]
 
 [node name="Player2" parent="." instance=ExtResource( 5 )]
 
 [node name="HUD" parent="." instance=ExtResource( 6 )]
-[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
-[connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="hit" from="Player1" to="." method="_on_Player_hit"]
 [connection signal="hit" from="Player2" to="." method="_on_Player_hit"]
 [connection signal="start_game" from="HUD" to="." method="_on_HUD_start_game"]
