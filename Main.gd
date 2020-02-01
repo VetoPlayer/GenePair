@@ -4,6 +4,18 @@ export (PackedScene) var Mob
 var score
 
 
+var player2Controls = {"left":	"second_left",
+						"right":"second_right",
+						"up":"",
+						"down" :"",
+						"jump" :"second_jump"}
+
+var player1Controls = {	"left": "first_left",
+						"right": "first_right",
+						"up": "",
+						"down": "",
+						"jump": "first_jump"}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	## Let's get the global variables about the players
@@ -13,8 +25,8 @@ func _ready():
 	var f = g.first_animals
 	## Second Player
 	var sec = g.second_animals
-	$Player1.start($StartPosition1.position, true, f[0], f[1],  f[2])
-	$Player2.start($StartPosition2.position, false, sec[0], sec[1], sec[2])
+	$Player1.start($StartPosition1.position, true, f[0], f[1],  f[2], player1Controls)
+	$Player2.start($StartPosition2.position, false, sec[0], sec[1], sec[2], player2Controls)
 	$Music.play()
 
 

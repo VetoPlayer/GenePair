@@ -11,6 +11,8 @@ var right = "ui_right"
 var up_attack = "ui_up"
 var up_block = "ui_down"
 
+var CONTROLS
+
 var is_blocking = false
 
 # Called when the node enters the scene tree for the first time.
@@ -21,37 +23,37 @@ func _ready():
 	screen_size = get_viewport_rect().size
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var velocity = Vector2()
-	if Input.is_action_pressed(left):
-		velocity.x -= 1
-	if Input.is_action_pressed(right):
-		velocity.x += 1
-	if Input.is_action_pressed(up_attack):
-		$Torso.animation = "torso_attack"
-		$Torso.play()
-	if Input.is_action_pressed(up_block):
-		is_blocking = true
-		$Torso.animation = "torso_block"
-		$Torso.play()
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-		## Play the actual animation according to the velocity
-		##if velocity.x != 0:
-		##	$Torso.flip_v = false
-		##	$Torso.flip_h = velocity.x < 0
-		##if velocity.y != 0:
-		##	$Torso.animation = "up"
-		##	$Torso.flip_v = velocity.y > 0
-	#else:
-		#$Torso.stop()
-	# Actually update the player position
-	position += velocity * delta
-	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 0, screen_size.y)
+#func _process(delta):
+#	var velocity = Vector2()
+#	if Input.is_action_pressed(left):
+#		velocity.x -= 1
+#	if Input.is_action_pressed(right):
+#		velocity.x += 1
+#	if Input.is_action_pressed(up_attack):
+#		$Torso.animation = "torso_attack"
+#		$Torso.play()
+#	if Input.is_action_pressed(up_block):
+#		is_blocking = true
+#		$Torso.animation = "torso_block"
+#		$Torso.play()
+#	if velocity.length() > 0:
+#		velocity = velocity.normalized() * speed
+#		## Play the actual animation according to the velocity
+#		##if velocity.x != 0:
+#		##	$Torso.flip_v = false
+#		##	$Torso.flip_h = velocity.x < 0
+#		##if velocity.y != 0:
+#		##	$Torso.animation = "up"
+#		##	$Torso.flip_v = velocity.y > 0
+#	#else:
+#		#$Torso.stop()
+#	# Actually update the player position
+#	position += velocity * delta
+#	position.x = clamp(position.x, 0, screen_size.x)
+#	position.y = clamp(position.y, 0, screen_size.y)
 
 
-func start(pos, is_first_player, head, torso, legs):
+func start(pos, is_first_player, head, torso, legs, controls):
 	## When the game starts, move the player in the given position and reveal it.
 	position = pos
 	show()
@@ -70,6 +72,7 @@ func start(pos, is_first_player, head, torso, legs):
 		#Flip the sprites
 		$Torso.flip_h = false
 
+	CONTROLS = controls
 	$CollisionShape2D.disabled = false
 
 func _on_Player_area_entered(area):

@@ -23,6 +23,9 @@ margin_top = -7.0
 margin_right = 1031.0
 margin_bottom = 603.0
 color = Color( 0.784314, 0.635294, 0.784314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="StartPosition1" type="Position2D" parent="."]
 position = Vector2( 200, 300 )
