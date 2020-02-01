@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Mob.tscn" type="PackedScene" id=2]
 [ext_resource path="res://dodge_assets/art/House In a Forest Loop.ogg" type="AudioStream" id=3]
 [ext_resource path="res://dodge_assets/art/gameover.wav" type="AudioStream" id=4]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://HUD.tscn" type="PackedScene" id=6]
-[ext_resource path="res://HealthBar.tscn" type="PackedScene" id=7]
+[ext_resource path="res://HealthBar.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -20,9 +19,9 @@ stream = ExtResource( 4 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = 1.0
-margin_top = -8.29233
+margin_top = -7.0
 margin_right = 1031.0
-margin_bottom = 601.708
+margin_bottom = 603.0
 color = Color( 0.784314, 0.635294, 0.784314, 1 )
 
 [node name="StartPosition1" type="Position2D" parent="."]
@@ -35,14 +34,18 @@ position = Vector2( 798.892, 301.108 )
 
 [node name="Player2" parent="." instance=ExtResource( 5 )]
 
-[node name="HUD" parent="." instance=ExtResource( 6 )]
+[node name="HealthBar1" parent="." instance=ExtResource( 6 )]
+margin_left = 102.6
+margin_top = 40.85
+margin_right = 102.6
+margin_bottom = 40.85
+rect_scale = Vector2( 0.2, 0.2 )
 
-[node name="HealthBar" parent="HUD" instance=ExtResource( 7 )]
-margin_left = 15.5083
-margin_top = -3.87705
-margin_right = 15.5083
-margin_bottom = -3.87708
+[node name="HealthBar2" parent="." instance=ExtResource( 6 )]
+margin_left = 646.634
+margin_top = 44.3321
+margin_right = 646.634
+margin_bottom = 44.3321
 rect_scale = Vector2( 0.2, 0.2 )
 [connection signal="hit" from="Player1" to="." method="_on_Player_hit"]
 [connection signal="hit" from="Player2" to="." method="_on_Player_hit"]
-[connection signal="start_game" from="HUD" to="." method="_on_HUD_start_game"]

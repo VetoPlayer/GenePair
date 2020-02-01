@@ -8,16 +8,18 @@ var score
 func _ready():
 	$Player1.start($StartPosition1.position, true)
 	$Player2.start($StartPosition2.position, false)
-	$HUD.show_message("Get Ready!")
 	$Music.play()
 
 
 
 func _on_Player_hit(is_first_player, damage):
 	## When the player is hit, the game is over
-	print("I see the player being hit")
-	print(damage)
 	##$HUD.show_game_over()
+	
+	if(is_first_player):
+		$HealthBar1.update_health(damage)
+	else:
+		$HealthBar2.update_health(damage)
 	$DeathSound.play()
 	$Music.stop()
 	
