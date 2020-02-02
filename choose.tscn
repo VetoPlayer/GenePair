@@ -86,14 +86,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -424.72
-margin_top = -293.05
-margin_right = -150.72
-margin_bottom = -193.05
+margin_left = -478.999
+margin_top = -298.219
+margin_right = -71.9989
+margin_bottom = -198.219
 rect_pivot_offset = Vector2( 82.7201, 23.0496 )
 custom_fonts/font = SubResource( 2 )
 toggle_mode = true
-text = "Chicken"
+text = "Charmeleon"
 
 [node name="Hedgehog" type="Button" parent="."]
 anchor_left = 0.5
@@ -127,14 +127,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 187.856
-margin_top = -299.511
-margin_right = 461.856
-margin_bottom = -199.511
+margin_left = 93.5141
+margin_top = -302.096
+margin_right = 500.514
+margin_bottom = -202.096
 rect_pivot_offset = Vector2( 82.7201, 23.0496 )
 custom_fonts/font = SubResource( 2 )
 toggle_mode = true
-text = "Chicken"
+text = "Charmeleon"
 
 [node name="Hedgehog2" type="Button" parent="."]
 anchor_left = 0.5

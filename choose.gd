@@ -13,7 +13,7 @@ func _on_Trex_pressed():
 
 
 func _on_Chicken_pressed():
-	g.add_first_animals("chicken")
+	g.add_first_animals("chamaleon")
 
 
 func _on_Hedgehog_pressed():
@@ -25,7 +25,7 @@ func _on_Trex2_pressed():
 
 
 func _on_Chicken2_pressed():
-	g.add_second_animals("chicken")
+	g.add_second_animals("chamaleon")
 
 
 func _on_Hedgehog2_pressed():

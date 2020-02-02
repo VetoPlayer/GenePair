@@ -76,6 +76,14 @@ func start(pos, is_first_player, head, torso, legs):
 		up_attack = "first_attack"
 		up_block = "first_down"
 		kick = "first_kick"
+		
+	## Startup with the correct sprites
+	$Head.animation = "head_" + type_head
+	$Head.play()
+	$Torso.animation = "torso_attack_" + type_torso
+	$Torso.play()
+	$Legs.animation = "leg_attack_" + type_legs
+	$Legs.play()
 
 
 
@@ -86,6 +94,8 @@ func _on_Player_area_entered(area):
 	## We actually want this to be disabled because we don't want to happen twice
 	#$CollisionShape2D.set_deferred("disabled", true)
 
+func _on_Head_animation_finished():
+	$Head.stop()
 
 func _on_Torso_animation_finished():
 	$Torso.stop()
@@ -98,3 +108,6 @@ func _on_Legs_animation_finished():
 	$Legs.stop()
 	is_blocking = false
 	is_attacking = false
+
+
+
