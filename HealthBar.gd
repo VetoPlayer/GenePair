@@ -20,10 +20,10 @@ func update_health(damage):
 	  health_bar.value = 0.0
 	  health_bar.max_value = 0.0
 	  print ("Done xd")
+	  emit_signal("dead_player")
 	else:
 	  health_bar.value = health_value
 	## Update health value
 	health_bar.value = health_value
-	if health_value <= 0:
-		emit_signal("dead_player")
+
 	
