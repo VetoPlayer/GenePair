@@ -50,6 +50,5 @@ margin_right = 118.056
 margin_bottom = -141.213
 custom_fonts/font = SubResource( 2 )
 text = "Credits"
-
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_Credits_pressed"]
