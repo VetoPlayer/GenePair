@@ -66,9 +66,6 @@ func start(pos, is_first_player, head, torso, legs):
 	type_head = head
 	type_torso = torso
 	type_legs = legs
-	print(type_head)
-	print(type_torso)
-	print(type_legs)
 	
 	if is_first_player:
 		self.scale.x = -1;
