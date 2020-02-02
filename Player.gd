@@ -10,6 +10,7 @@ var left = "ui_left"
 var right = "ui_right"
 var up_attack = "ui_up"
 var up_block = "ui_down"
+var kick = "ui_kick"
 
 var is_blocking = false
 
@@ -34,6 +35,9 @@ func _process(delta):
 		is_blocking = true
 		$Torso.animation = "torso_block"
 		$Torso.play()
+	if Input.is_action_pressed(kick):
+		$Legs.animation = "leg_attack"
+		$Legs.play()
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		## Play the actual animation according to the velocity
@@ -61,19 +65,13 @@ func start(pos, is_first_player, head, torso, legs):
 	
 	if is_first_player:
 		self.scale.x = -1;
-#		$Head.flip_h = true
-#		$Torso.flip_h = true
-#		$Legs.flip_h = true
 		first_player = true
-		#self.flip_h = true
 		## Update the commands to be the first player ones.
 		left = "first_left"
 		right = "first_right"
 		up_attack = "first_attack"
 		up_block = "first_down"
-	else:
-		#Flip the sprites
-		$Torso.flip_h = false
+		kick = "first_kick"
 
 
 
@@ -89,3 +87,7 @@ func _on_Torso_animation_finished():
 	$Torso.stop()
 	is_blocking = false
 	
+
+
+func _on_Legs_animation_finished():
+	$Legs.stop()
