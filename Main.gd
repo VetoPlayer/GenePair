@@ -30,8 +30,9 @@ func _on_Player_hit(is_first_player, damage):
 		$HealthBar1.update_health(damage)
 	else:
 		$HealthBar2.update_health(damage)
+	#deathSound effect is being 
 	$DeathSound.play()
-	$Music.stop()
+	#$Music.stop()
 	
 	
 

@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Mob.tscn" type="PackedScene" id=2]
-[ext_resource path="res://dodge_assets/art/House In a Forest Loop.ogg" type="AudioStream" id=3]
-[ext_resource path="res://dodge_assets/art/gameover.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/Music/Retro fighter.wav" type="AudioStream" id=3]
+[ext_resource path="res://Minecraft Alpha Damage Sound Effect.wav" type="AudioStream" id=4]
 [ext_resource path="res://forest-background.png" type="Texture" id=5]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://HealthBar.tscn" type="PackedScene" id=7]
@@ -49,7 +49,6 @@ margin_top = 44.3321
 margin_right = 646.634
 margin_bottom = 44.3321
 rect_scale = Vector2( 0.2, 0.2 )
-
 [connection signal="hit" from="Player1" to="." method="_on_Player_hit"]
 [connection signal="hit" from="Player2" to="." method="_on_Player_hit"]
 [connection signal="dead_player" from="HealthBar1" to="." method="_on_HealthBar1_dead_player"]
