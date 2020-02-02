@@ -17,8 +17,12 @@ func _ready():
 	$Player1.start($StartPosition1.position, true, f[0], f[1],  f[2])
 	$Player2.start($StartPosition2.position, false, sec[0], sec[1], sec[2])
 	$Music.play()
+	$HealthBar1.connect("dead_player", self, "on_player_dead")
+	$HealthBar2.connect("dead_player", self, "on_player_dead")
 
 
+func on_player_dead():
+	get_tree().change_scene("res://game_over.tscn")
 
 func _on_Player_hit(is_first_player, damage):
 	## When the player is hit, the game is over
