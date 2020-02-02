@@ -20,6 +20,7 @@ var type_legs = ""
 
 
 var is_blocking = false
+var is_attacking = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,6 +38,7 @@ func _process(delta):
 		velocity.x += 1
 	if Input.is_action_pressed(up_attack):
 		$Torso.animation = "torso_attack_" + type_torso
+		is_attacking = true
 		$Torso.play()
 	if Input.is_action_pressed(up_block):
 		is_blocking = true
@@ -58,7 +60,7 @@ func start(pos, is_first_player, head, torso, legs):
 	## When the game starts, move the player in the given position and reveal it.
 	position = pos
 	show()
-	$CollisionShape2D.disabled = false
+	#$CollisionShape2D.disabled = false
 	
 	## Remember what kind of body you have
 	type_head = head
@@ -81,7 +83,7 @@ func start(pos, is_first_player, head, torso, legs):
 
 
 func _on_Player_area_entered(area):
-	if not is_blocking and not area.is_blocking:
+	if not is_blocking and area.is_attacking:
 		emit_signal("hit", first_player, 20)
 	## set_deferred: Disable collision shape only when it's safe to do so.
 	## We actually want this to be disabled because we don't want to happen twice
@@ -91,8 +93,11 @@ func _on_Player_area_entered(area):
 func _on_Torso_animation_finished():
 	$Torso.stop()
 	is_blocking = false
+	is_attacking = false
 	
 
 
 func _on_Legs_animation_finished():
 	$Legs.stop()
+	is_blocking = false
+	is_attacking = false

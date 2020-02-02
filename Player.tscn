@@ -1,14 +1,16 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://sprites/T-rex/dinoTREX-kicking1.png" type="Texture" id=2]
 [ext_resource path="res://sprites/T-rex/dinoTREX-kicking2.png" type="Texture" id=3]
-[ext_resource path="res://sprites/T-rex/dinoTREXPunching1.png" type="Texture" id=4]
-[ext_resource path="res://sprites/T-rex/dinoTREXPunching2.png" type="Texture" id=5]
-[ext_resource path="res://sprites/T-rex/dinoTREXPunching3.png" type="Texture" id=6]
-[ext_resource path="res://sprites/T-rex/dinoTREXPunching4.png" type="Texture" id=7]
-[ext_resource path="res://sprites/T-rex/dinoTREXPunching5.png" type="Texture" id=8]
-[ext_resource path="res://sprites/T-rex/dinoTREX-head.png" type="Texture" id=9]
+[ext_resource path="res://sprites/HedgeHog/HedgeHogKicking1.png" type="Texture" id=4]
+[ext_resource path="res://sprites/HedgeHog/HedgeHogKicking2.png" type="Texture" id=5]
+[ext_resource path="res://sprites/T-rex/dinoTREXPunching1.png" type="Texture" id=6]
+[ext_resource path="res://sprites/T-rex/dinoTREXPunching2.png" type="Texture" id=7]
+[ext_resource path="res://sprites/T-rex/dinoTREXPunching3.png" type="Texture" id=8]
+[ext_resource path="res://sprites/T-rex/dinoTREXPunching4.png" type="Texture" id=9]
+[ext_resource path="res://sprites/T-rex/dinoTREXPunching5.png" type="Texture" id=10]
+[ext_resource path="res://sprites/T-rex/dinoTREX-head.png" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -16,11 +18,16 @@ animations = [ {
 "loop": true,
 "name": "leg_attack_trex",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "leg_attack_hedgehog",
+"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "torso_attack_trex",
 "speed": 5.0
@@ -28,15 +35,21 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "head_trex",
 "speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=4]
-radius = 19.5958
-height = 28.6281
+radius = 54.5792
+height = 105.071
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 56.5189
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 37.0
 
 [node name="Player" type="Area2D"]
 script = ExtResource( 1 )
@@ -63,8 +76,18 @@ frames = SubResource( 3 )
 animation = "head_trex"
 offset = Vector2( -424.956, -99.3352 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShapeTorso" type="CollisionShape2D" parent="."]
+position = Vector2( 4.21054, -5.26318 )
 shape = SubResource( 4 )
+
+[node name="CollisionShapeLegs" type="CollisionShape2D" parent="."]
+position = Vector2( 30.5262, 103.158 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -61, -47 )
+rotation = 1.57117
+shape = SubResource( 6 )
 
 [connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
