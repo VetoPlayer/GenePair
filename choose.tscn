@@ -149,6 +149,7 @@ rect_pivot_offset = Vector2( 82.7201, 23.0496 )
 custom_fonts/font = SubResource( 2 )
 toggle_mode = true
 text = "Hedgehog"
+
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="Trex" to="." method="_on_Trex_pressed"]
 [connection signal="pressed" from="Chicken" to="." method="_on_Chicken_pressed"]

@@ -12,6 +12,13 @@ var up_attack = "ui_up"
 var up_block = "ui_down"
 var kick = "ui_kick"
 
+## Types of actual parts of the body
+var type_head = ""
+var type_torso = ""
+var type_legs = ""
+
+
+
 var is_blocking = false
 
 # Called when the node enters the scene tree for the first time.
@@ -29,31 +36,23 @@ func _process(delta):
 	if Input.is_action_pressed(right):
 		velocity.x += 1
 	if Input.is_action_pressed(up_attack):
-		$Torso.animation = "torso_attack"
+		$Torso.animation = "torso_attack_" + type_torso
 		$Torso.play()
 	if Input.is_action_pressed(up_block):
 		is_blocking = true
 		$Torso.animation = "torso_block"
 		$Torso.play()
 	if Input.is_action_pressed(kick):
-		$Legs.animation = "leg_attack"
+		$Legs.animation = "leg_attack_" + type_legs
 		$Legs.play()
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-		## Play the actual animation according to the velocity
-		##if velocity.x != 0:
-		##	$Torso.flip_v = false
-		##	$Torso.flip_h = velocity.x < 0
-		##if velocity.y != 0:
-		##	$Torso.animation = "up"
-		##	$Torso.flip_v = velocity.y > 0
-	#else:
-		#$Torso.stop()
+	
 	# Actually update the player position
 	position += velocity * delta
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
-
+	
 
 func start(pos, is_first_player, head, torso, legs):
 	## When the game starts, move the player in the given position and reveal it.
@@ -61,7 +60,13 @@ func start(pos, is_first_player, head, torso, legs):
 	show()
 	$CollisionShape2D.disabled = false
 	
-	
+	## Remember what kind of body you have
+	type_head = head
+	type_torso = torso
+	type_legs = legs
+	print(type_head)
+	print(type_torso)
+	print(type_legs)
 	
 	if is_first_player:
 		self.scale.x = -1;
