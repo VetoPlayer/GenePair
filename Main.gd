@@ -46,3 +46,7 @@ func _on_HUD_start_game():
 
 func _on_HealthBar1_dead_player():
 	print("Game is Over!")
+
+
+func _on_Music_finished():
+	$Music.play()# Replace with function body.
