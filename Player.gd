@@ -55,12 +55,17 @@ func start(pos, is_first_player, head, torso, legs):
 	## When the game starts, move the player in the given position and reveal it.
 	position = pos
 	show()
+	$CollisionShape2D.disabled = false
+	
+	
 	
 	if is_first_player:
-		$Head.flip_h = true
-		$Torso.flip_h = true
-		$Legs.flip_h = true
+		self.scale.x = -1;
+#		$Head.flip_h = true
+#		$Torso.flip_h = true
+#		$Legs.flip_h = true
 		first_player = true
+		#self.flip_h = true
 		## Update the commands to be the first player ones.
 		left = "first_left"
 		right = "first_right"
@@ -70,7 +75,7 @@ func start(pos, is_first_player, head, torso, legs):
 		#Flip the sprites
 		$Torso.flip_h = false
 
-	$CollisionShape2D.disabled = false
+
 
 func _on_Player_area_entered(area):
 	if not is_blocking and not area.is_blocking:
