@@ -13,11 +13,9 @@ func _ready():
 	var f = g.first_animals
 	## Second Player
 	var sec = g.second_animals
-	$Player1.start($StartPosition1.position, true, "trex", "trex",  "trex")
-	$Player2.start($StartPosition2.position, false, "trex", "trex", "hedgehog")
 	## TODO: Reenable these!
-	##$Player1.start($StartPosition1.position, true, f[0], f[1],  f[2])
-	##$Player2.start($StartPosition2.position, false, sec[0], sec[1], sec[2])
+	$Player1.start($StartPosition1.position, true, f[0], f[1],  f[2])
+	$Player2.start($StartPosition2.position, false, sec[0], sec[1], sec[2])
 	$Music.play()
 
 
